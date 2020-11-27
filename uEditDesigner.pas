@@ -122,6 +122,7 @@ type
     StatusBar1: TStatusBar;
     OpenDialog1: TOpenDialog;
     SaveDialog1: TSaveDialog;
+    Pnl_LeftSide: TPanel;
     function EditDesigner1PreDrag: HRESULT;
     function EditDesigner1SnapRect(const pIElement: IHTMLElement; var prcNew: TRect; eHandle: TOleEnum): HRESULT;
     function EditDesigner1PostEditorEventNotify(inEvtDispId: Integer; const pIEventObj: IHTMLEventObj): HRESULT;
@@ -189,6 +190,7 @@ type
     procedure ToolButtonTrackClick(Sender: TObject);
     procedure SynEdit1StatusChange(Sender: TObject; Changes: TSynStatusChanges);
     procedure SynEdit1Change(Sender: TObject);
+    procedure FormResize(Sender: TObject);
   private
     IsloadingTime: Boolean;
     PvTempHtml: TStringList;
@@ -826,6 +828,11 @@ begin
   SynCompletionProposal1.ItemList.LoadFromFile(ExtractFilePath(ParamStr(0)) + 'SynCP.txt');
   SynAutoComplete1.AutoCompleteList.LoadFromFile(ExtractFilePath(ParamStr(0)) + 'SynAC.txt');
   TempFilePath := ExtractFilePath(ParamStr(0)) + 'Test.html';
+end;
+
+procedure TForm1.FormResize(Sender: TObject);
+begin
+  EmbeddedWB1.Constraints.MinWidth := (Self.Width div 3);
 end;
 
 procedure TForm1.FormShow(Sender: TObject);

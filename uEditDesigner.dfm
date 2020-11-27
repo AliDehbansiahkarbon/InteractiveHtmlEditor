@@ -16,17 +16,16 @@ object Form1: TForm1
   Scaled = False
   OnClose = FormClose
   OnCreate = FormCreate
+  OnResize = FormResize
   OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object Splitter1: TSplitter
-    Left = 465
+    Left = 474
     Top = 58
-    Width = 14
+    Width = 9
     Height = 583
-    ExplicitLeft = 513
-    ExplicitTop = 64
-    ExplicitHeight = 602
+    Beveled = True
   end
   object ToolBar1: TToolBar
     Left = 0
@@ -38,7 +37,6 @@ object Form1: TForm1
     ParentShowHint = False
     ShowHint = True
     TabOrder = 0
-    ExplicitWidth = 1277
     object ToolButtonNew: TToolButton
       Left = 0
       Top = 0
@@ -155,7 +153,6 @@ object Form1: TForm1
     ParentShowHint = False
     ShowHint = True
     TabOrder = 1
-    ExplicitWidth = 1277
     object ComboBoxFontName: TComboBox
       Left = 0
       Top = 0
@@ -179,7 +176,7 @@ object Form1: TForm1
       Left = 173
       Top = 0
       Width = 70
-      Height = 22
+      Height = 21
       Hint = 'Font Size'
       Style = csDropDownList
       Ctl3D = True
@@ -350,35 +347,10 @@ object Form1: TForm1
       OnClick = ToolButtonRadioButtonClick
     end
   end
-  object EmbeddedWB1: TEmbeddedWB
-    Left = 0
-    Top = 58
-    Width = 465
-    Height = 583
-    Align = alLeft
-    TabOrder = 2
-    DisableCtrlShortcuts = 'N'
-    UserInterfaceOptions = [EnableThemes]
-    About = ' EmbeddedWB https://www.rentaltracker.com/'
-    EnableMessageHandler = False
-    HTMLCode.Strings = (
-      'www.google.com')
-    PrintOptions.HTMLHeader.Strings = (
-      '<HTML></HTML>')
-    PrintOptions.Orientation = poPortrait
-    OnKeyUp = EmbeddedWB1KeyUp
-    ExplicitHeight = 602
-    ControlData = {
-      4C0000008F420000651500000000000000000000000000000000000000000000
-      000000004C000000000000000000000001000000E0D057007335CF11AE690800
-      2B2E126208000000000000004C0000000114020000000000C000000000000046
-      8000000000000000000000000000000000000000000000000000000000000000
-      00000000000000000100000000000000000000000000000000000000}
-  end
   object SynEdit1: TSynEdit
-    Left = 479
+    Left = 483
     Top = 58
-    Width = 565
+    Width = 561
     Height = 583
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
@@ -387,7 +359,7 @@ object Form1: TForm1
     Font.Name = 'Courier New'
     Font.Pitch = fpFixed
     Font.Style = []
-    TabOrder = 3
+    TabOrder = 2
     CodeFolding.GutterShapeSize = 11
     CodeFolding.CollapsedLineColor = clGrayText
     CodeFolding.FolderBarLinesColor = clGrayText
@@ -411,9 +383,8 @@ object Form1: TForm1
     OnChange = SynEdit1Change
     OnStatusChange = SynEdit1StatusChange
     FontSmoothing = fsmNone
-    ExplicitLeft = 574
-    ExplicitWidth = 474
-    ExplicitHeight = 602
+    ExplicitLeft = 488
+    ExplicitWidth = 555
     RemovedKeystrokes = <
       item
         Command = ecLineBreak
@@ -432,11 +403,42 @@ object Form1: TForm1
     Height = 19
     Panels = <>
     SimplePanel = True
-    ExplicitTop = 317
-    ExplicitWidth = 754
+  end
+  object Pnl_LeftSide: TPanel
+    Left = 0
+    Top = 58
+    Width = 474
+    Height = 583
+    Align = alLeft
+    TabOrder = 4
+    object EmbeddedWB1: TEmbeddedWB
+      Left = 1
+      Top = 1
+      Width = 472
+      Height = 581
+      Align = alClient
+      TabOrder = 0
+      Silent = False
+      DisableCtrlShortcuts = 'N'
+      UserInterfaceOptions = [EnableThemes]
+      About = ' EmbeddedWB - adehban@gmail.com'
+      EnableMessageHandler = False
+      PrintOptions.HTMLHeader.Strings = (
+        '<HTML></HTML>')
+      PrintOptions.Orientation = poPortrait
+      OnKeyUp = EmbeddedWB1KeyUp
+      ExplicitLeft = -216
+      ExplicitWidth = 465
+      ControlData = {
+        4C0000008F420000651500000000000000000000000000000000000000000000
+        000000004C000000000000000000000001000000E0D057007335CF11AE690800
+        2B2E126208000000000000004C0000000114020000000000C000000000000046
+        8000000000000000000000000000000000000000000000000000000000000000
+        00000000000000000100000000000000000000000000000000000000}
+    end
   end
   object EditDesigner1: TEditDesigner
-    About = 'TEditDesigner - from https://www.rentaltracker.com/'
+    About = 'TEditDesigner - adehban@gmail.com'
     EmbeddedWB = EmbeddedWB1
     OnPreDrag = EditDesigner1PreDrag
     OnPreHandle = EditDesigner1PreHandleEvent
